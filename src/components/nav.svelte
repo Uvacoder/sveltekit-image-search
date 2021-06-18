@@ -2,7 +2,7 @@
     import { goto } from '$app/navigation';
     import { formData } from '../store';
 
-    const onKeyPress = e => {
+    const onKeyPress = (e: KeyboardEvent) => {
       if (e.charCode === 13) {
         goto(`/search/${$formData.searchTerm}`);
       }
