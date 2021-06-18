@@ -1,28 +1,25 @@
 <script lang="ts">
     import LazyImage from 'svelte-lazy-image';
+    import type { Image } from '$lib/types';
+    export let image: Image;
 
-    export let src: string;
-    export let placeholder: string;
-    export let tags: string;
-    export let user: string;
-
-    $: tagsArray = tags.split(',').map((i) => i.trim())
+    $: tagsArray = image.tags.split(',').map((i) => i.trim())
 </script>
 
 <div class="card bordered">
     <figure>
       <LazyImage
-        src={src}
-        placeholder={placeholder}
+        src={image.webformatURL}
+        placeholder={image.previewURL}
         alt="Card Image"
       />
     </figure> 
     <div class="card-body">
-      <h2 class="card-title">Photo by {user}</h2> 
+      <h2 class="card-title">Photo by {image.user}</h2> 
       <ul>
-        <li class="text-sm"><strong>Views:</strong> 461,218</li>
-        <li class="text-sm"><strong>Downloads:</strong> 249,874</li>
-        <li class="text-sm"><strong>Likes:</strong> 1,647</li>
+        <li class="text-sm"><strong>Views:</strong> {image.views.toLocaleString()}</li>
+        <li class="text-sm"><strong>Downloads:</strong> {image.downloads.toLocaleString()}</li>
+        <li class="text-sm"><strong>Likes:</strong> {image.likes.toLocaleString()}</li>
       </ul>
       <div class="card-actions">
         {#each tagsArray as tag}
