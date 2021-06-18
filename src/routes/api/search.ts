@@ -1,7 +1,13 @@
 import type { RequestHandler, Response } from '@sveltejs/kit';
-import type { APIResponse } from '$lib/types'
+import type { Image } from '$lib/types'
 
-const key =  import.meta.env.VITE_PIXABAY_API_KEY; 
+const key =  import.meta.env.VITE_PIXABAY_API_KEY;
+
+interface APIResponse {
+    total: number;
+    totalHits: number;
+    hits: Image[];
+}
 
 const fetchImages = async (q = '', type = 'all', category = '', order = 'popular') => {
     const res = await fetch(`https://pixabay.com/api/?key=${key}&q=${q}&per_page=15&image_type=${type}&orientation=horizontal&category=${category}&order=${order}`);

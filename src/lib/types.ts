@@ -22,9 +22,3 @@ export interface Image {
     user: string;
     userImageURL: string;
 }
-
-export interface APIResponse {
-    total: number;
-    totalHits: number;
-    hits: Image[];
-}
