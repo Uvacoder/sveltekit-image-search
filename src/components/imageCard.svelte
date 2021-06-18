@@ -1,5 +1,8 @@
 <script lang="ts">
+    import LazyImage from 'svelte-lazy-image';
+
     export let src: string;
+    export let placeholder: string;
     export let tags: string;
     export let user: string;
 
@@ -8,7 +11,11 @@
 
 <div class="card bordered">
     <figure>
-      <img src={src} alt="card_image" />
+      <LazyImage
+        src={src}
+        placeholder={placeholder}
+        alt="Card Image"
+      />
     </figure> 
     <div class="card-body">
       <h2 class="card-title">Photo by {user}</h2> 

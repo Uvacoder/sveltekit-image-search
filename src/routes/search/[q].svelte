@@ -37,6 +37,6 @@ export let hits: Image[] = [];
 
 <div class="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
     {#each hits as image}
-        <ImageCard src={image.webformatURL} tags={image.tags} user={image.user} />
+        <ImageCard src={image.webformatURL} tags={image.tags} user={image.user} placeholder={image.previewURL} />
     {/each}
 </div>
