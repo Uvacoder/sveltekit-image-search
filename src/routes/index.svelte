@@ -12,8 +12,7 @@
     const res = await fetch(`/api/search?${formData}`);
 
     if (res.ok) {
-        const data = await res.json()
-        console.log(data)
+        const data = await res.json();
         return {
             props: {
                 hits: data.data.hits

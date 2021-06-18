@@ -20,24 +20,24 @@ export const categories = [
     "buildings",
     "business",
     "music"
-]
+];
 
 export const types = [
     "all",
     "photo",
     "illustration",
     "vector"
-]
+];
 
 export const orientation = [
     "horizontal",
     "vertical"
-]
+];
 
 export const order = [
     "popular",
     "latest"
-]
+];
 
 export const stringify = (obj: {[key: string]: string}): string => {
     const str = [];

@@ -8,12 +8,12 @@
             type: query.get('type') ?? 'all',
             category: query.get('category') ?? '',
             order: query.get('order') ?? 'popular'
-        })
+        });
 
         const res = await fetch(`/api/search?${formData}`);
   
         if (res.ok) {
-            const data = await res.json()
+            const data = await res.json();
             return {
                 props: {
                     hits: data.data.hits
@@ -29,8 +29,8 @@
 </script>
 
 <script lang="ts">
-import ImageCard from '../../components/imageCard.svelte';
 import type { Image } from '$lib/types'
+import ImageCard from '../../components/imageCard.svelte';
 
 export let hits: Image[] = [];
 </script>
